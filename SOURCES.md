@@ -10,7 +10,7 @@ The World Bank report *An Unsustainable Life: The Impact of Heat on Health and t
 - World Bank release, 16 September 2025: https://www.worldbank.org/en/news/press-release/2025/09/16/bangladesh-faces-health-and-economic-risks-from-rising-temperature-world-bank
 - World Bank explanation: https://blogs.worldbank.org/en/endpovertyinsouthasia/when-heat-drains-growth--the-human-cost-of-rising-temperatures-i
 
-The draft's rising line is a schematic illustration of the overall increase. No intermediate annual measurements were provided.
+The animated thermometer and heat graphics illustrate the overall increase. They do not show intermediate annual measurements.
 
 ## Marico reach statistic
 
