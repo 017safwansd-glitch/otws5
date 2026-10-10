@@ -1,0 +1,10 @@
+import {bundle} from '@remotion/bundler';
+import {selectComposition,renderStill} from '@remotion/renderer';
+import {mkdir} from 'node:fs/promises';
+const serveUrl=await bundle({entryPoint:'src/index.ts'});
+const browserExecutable='/usr/bin/chromium';
+const composition=await selectComposition({serveUrl,id:'ParachuteReCoolFinal',browserExecutable});
+await mkdir('out/editorial-stills',{recursive:true});
+const frames=process.argv.slice(2).length?process.argv.slice(2).map(Number):[80,270,440,700,835,1030,1265,1315,1390,1500,1600,1700,1910,2110,2155,2260,2440,2510,2615,2740,2870,3010,3210,3420,3530,3670,3780,3850,4020,4160,4230,4330,4550,4680,4760,4820,5110,5350];
+let next=0;
+await Promise.all(Array.from({length:3},async()=>{while(next<frames.length){const frame=frames[next++];await renderStill({serveUrl,composition,frame,output:`out/editorial-stills/${String(frame).padStart(4,'0')}.png`,imageFormat:'png',browserExecutable});console.log('Frame',frame);}}));

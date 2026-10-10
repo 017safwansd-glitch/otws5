@@ -1,0 +1,32 @@
+{
+  "recool-logo.png": {
+    "width": 2172,
+    "height": 724,
+    "bbox": [
+      65,
+      0,
+      2047,
+      724
+    ]
+  },
+  "recool-60ml.png": {
+    "width": 439,
+    "height": 585,
+    "bbox": [
+      150,
+      40,
+      289,
+      546
+    ]
+  },
+  "recool-150ml.png": {
+    "width": 439,
+    "height": 585,
+    "bbox": [
+      147,
+      21,
+      293,
+      547
+    ]
+  }
+}
