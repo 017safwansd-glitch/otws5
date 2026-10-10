@@ -11,4 +11,4 @@
 | Return outdoors | 6 seconds / 180 frames | [MP4](./girl-return.mp4?raw=true) |
 | Ending: same doorway, continued afternoon | 15.167 seconds / 455 frames | [MP4](./girl-ending.mp4?raw=true) |
 
-The three Blender clips are available now. The full MP4 and ZIP above still contain the earlier draft while the revised three-minute cut finishes rendering.
+The full revised MP4 is 1920×1080, 30 fps, exactly 180 seconds / 5,400 frames. It uses the uploaded original bottle PNGs and the one combined logo. Missing presenters leave plain white space with no markers. The project ZIP includes all three Blender clips, their editable .blend files, the Remotion source, and the supplied merged product video. Narration/music have not been supplied; the current cut is silent with editable script captions.
