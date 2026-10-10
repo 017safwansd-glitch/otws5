@@ -1,15 +1,11 @@
-# Parachute ReCool — motion pitch
+# Parachute ReCool — connected pitch
 
-180 seconds · 1920×1080 · 30 fps · landscape.
+Three minutes, landscape 1920×1080, 30 fps.
 
-43 short choreographed shots use kinetic typography, animated sweat and evaporation, moisture-responsive particles, liquid reveals, product mockups and animated business figures. The narration retains the proposed-formula and assumption-based forecast qualifications. There are no persistent headers, footers, presenter labels or interview placeholder.
+Ten sustained scenes replace the previous 43-shot montage. Nine soft dissolves connect them. Existing graphics are retained; looping pulses, bouncing lettering, floating packs, decorative particle fields and number count-ups are removed. A recurring droplet links discomfort, humidity, the unmet need and the proposed moisture-responsive mechanism. The solution comparison builds in one frame. Formula steps share one skin diagram. Pack prices and financial figures stay together for comparison.
 
-The original seven-second interview slot is replaced with: “The relief fades. The discomfort returns. And your afternoon is still ahead of you.”
+Scene durations: heat 23s; humidity and evidence 28s; solutions 29s; gap 14s; product reveal 12s; mechanism 16s; brand and packs 21s; launch 14s; business case 13s; closing 10s. The narration is retained. Music is quieter. No headers, footers or interview placeholder.
 
-Audio includes synthetic presenter voices and an original quiet procedural music bed. Product packs are concept mockups. This is a pitch visualization, not evidence of tested cooling performance. See SOURCES.md.
+Synthetic narration, concept pack mockups, and an original procedural music bed. The formula is proposed and subject to testing; projections use the user's assumption-based model. See SOURCES.md.
 
-## Edit and render
-
-Install Node.js and use `npm install`. Run `npm run dev` for the local HyperFrames editor, `npm run check` to validate, and `npm run render -- --output renders/Parachute-ReCool-motion.mp4 --fps 30 --quality high` to export.
-
-The editable composition is index.html. shots.json describes the visual shot timings; script.json contains the narration timings. Fonts, GSAP, images and audio are bundled in assets/. All animation is on a paused, registered GSAP timeline for deterministic rendering.
+To edit, install Node.js, run npm install, then npm run dev. Edit index.html; shots.json records the ten scene boundaries. Local fonts, GSAP, images and audio are bundled in assets/. Run npm run check to validate. Run npm run render -- --output renders/Parachute-ReCool-connected.mp4 --fps 30 --quality high to export. Set HYPERFRAMES_BROWSER_PATH if using a system Chromium installation.
