@@ -56,14 +56,15 @@ if patch.exists() and not state.get('moisture_corrected'):
     patch_meta=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-of','json',str(patch)],text=True))
     assert int(patch_meta['streams'][0]['nb_frames'])==320
     fixed=Path('out/parachute-recool-final-corrected.mp4')
-    filt='[0:v]split=2[a][b];[a]trim=end_frame=600,setpts=PTS-STARTPTS[v0];[1:v]setpts=PTS-STARTPTS[v1];[b]trim=start_frame=920,setpts=PTS-STARTPTS[v2];[v0][v1][v2]concat=n=3:v=1:a=0[v]'
+    filt='[0:v]split=2[a][b];[a]trim=end_frame=600,setpts=PTS-STARTPTS[v0];[1:v]setpts=PTS-STARTPTS[v1];[b]trim=start_frame=920,setpts=PTS-STARTPTS[v2];[v0][v1][v2]concat=n=3:v=1:a=0[joined];[joined]setpts=N/(30*TB)[v]'
     print('Finishing the corrected evaporation motion',flush=True)
-    subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-filter_complex_threads','2','-threads','2','-i',str(master),'-threads','2','-i',str(patch),'-filter_complex',filt,'-map','[v]','-an','-c:v','libx264','-preset','veryfast','-crf','18','-threads','4','-pix_fmt','yuv420p','-movflags','+faststart',str(fixed)],check=True)
+    subprocess.run(['ffmpeg','-hide_banner','-loglevel','error','-y','-filter_complex_threads','2','-threads','2','-i',str(master),'-threads','2','-i',str(patch),'-filter_complex',filt,'-map','[v]','-an','-c:v','libx264','-preset','veryfast','-crf','18','-threads','4','-r','30','-video_track_timescale','15360','-pix_fmt','yuv420p','-movflags','+faststart',str(fixed)],check=True)
     master.rename('out/parachute-recool-final-before-moisture-fix.mp4');fixed.rename(master)
     state['moisture_corrected']=True;state_path.write_text(json.dumps(state,indent=2)+'\n')
 meta=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(master)],text=True))
 v=next(s for s in meta['streams'] if s['codec_type']=='video')
 assert (v['width'],v['height'],v['r_frame_rate'],int(v['nb_frames']))==(1920,1080,'30/1',5400)
+assert v['avg_frame_rate']=='30/1'
 assert abs(float(meta['format']['duration'])-180)<.001
 assert not any(s['codec_type']=='audio' for s in meta['streams'])
 print('Decoding the full master',flush=True)
